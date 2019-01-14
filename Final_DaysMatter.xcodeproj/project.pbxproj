@@ -12,6 +12,8 @@
 		197ADF0C21EC902900468EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197ADF0A21EC902900468EAA /* Main.storyboard */; };
 		197ADF0E21EC902B00468EAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 197ADF0D21EC902B00468EAA /* Assets.xcassets */; };
 		197ADF1121EC902B00468EAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197ADF0F21EC902B00468EAA /* LaunchScreen.storyboard */; };
+		197ADF1D21ECDBB800468EAA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */; };
+		197ADF1F21ECEC5B00468EAA /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		197ADF0D21EC902B00468EAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		197ADF1021EC902B00468EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		197ADF1221EC902B00468EAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				197ADF0621EC902900468EAA /* AppDelegate.swift */,
 				197ADF0821EC902900468EAA /* ViewController.swift */,
 				197ADF0A21EC902900468EAA /* Main.storyboard */,
+				197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */,
+				197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */,
 				197ADF0D21EC902B00468EAA /* Assets.xcassets */,
 				197ADF0F21EC902B00468EAA /* LaunchScreen.storyboard */,
 				197ADF1221EC902B00468EAA /* Info.plist */,
@@ -135,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				197ADF1D21ECDBB800468EAA /* NavigationViewController.swift in Sources */,
+				197ADF1F21ECEC5B00468EAA /* DiscoverViewController.swift in Sources */,
 				197ADF0921EC902900468EAA /* ViewController.swift in Sources */,
 				197ADF0721EC902900468EAA /* AppDelegate.swift in Sources */,
 			);

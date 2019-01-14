@@ -1,24 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ibi-kf-hjv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--日记-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Final_DaysMatter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="日记" id="ptQ-Gb-KbV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1940" y="54.422788605697157"/>
+        </scene>
+        <!--倒数日-->
+        <scene sceneID="MRt-Bm-olc">
+            <objects>
+                <viewController id="Iff-t0-kkC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qKd-cx-ObG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RcK-Jj-dJt"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="倒数日" id="A6u-6J-41c"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ekm-xQ-br2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1940" y="733.5832083958021"/>
+        </scene>
+        <!--广场-->
+        <scene sceneID="RYd-ke-3E5">
+            <objects>
+                <viewController id="hMk-Tn-SCC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7lQ-qf-3Dg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1eI-SI-dfg"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="广场" id="qf8-dq-Jk6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SCX-D6-kHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1940" y="1450.5247376311845"/>
+        </scene>
+        <!--日记-->
+        <scene sceneID="1Ar-Lm-0DH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="22t-9u-9dV" customClass="NavigationViewController" customModule="Final_DaysMatter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="日记" image=" 日记" id="3Er-Hk-cWZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bHW-2b-1cU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1yl-YY-cEA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iQI-z5-vkb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1088.8" y="53.523238380809602"/>
+        </scene>
+        <!--倒数日-->
+        <scene sceneID="fjo-cW-Xv5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S0c-TT-cV3" customClass="NavigationViewController" customModule="Final_DaysMatter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="倒数日" image=" 倒数日" id="ZGh-hc-sD1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KnZ-aI-g4D">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Iff-t0-kkC" kind="relationship" relationship="rootViewController" id="P7J-ho-2ld"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SVy-Go-1ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1088.8" y="733.5832083958021"/>
+        </scene>
+        <!--广场-->
+        <scene sceneID="NR0-dD-rCe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="snB-ji-yDC" customClass="NavigationViewController" customModule="Final_DaysMatter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="广场" image=" 发现 2" id="T9F-7I-pIm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OuY-Hl-eFS">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hMk-Tn-SCC" kind="relationship" relationship="rootViewController" id="qK7-PX-bYj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OiE-2Y-gNP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1088.8" y="1450.5247376311845"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="uyS-Fe-mPD">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ibi-kf-hjv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sEi-Av-f7l">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="22t-9u-9dV" kind="relationship" relationship="viewControllers" id="GZA-8y-qkc"/>
+                        <segue destination="S0c-TT-cV3" kind="relationship" relationship="viewControllers" id="do6-c6-kYf"/>
+                        <segue destination="snB-ji-yDC" kind="relationship" relationship="viewControllers" id="95k-v3-qbl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KWy-qk-fAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118" y="780"/>
         </scene>
     </scenes>
+    <resources>
+        <image name=" 倒数日" width="22" height="22"/>
+        <image name=" 发现 2" width="30" height="24"/>
+        <image name=" 日记" width="18" height="18"/>
+    </resources>
 </document>
