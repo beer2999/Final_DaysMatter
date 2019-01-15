@@ -7,25 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F51C29E21EDEF480035FACC /* MineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C29C21EDEF480035FACC /* MineTableViewCell.swift */; };
+		0F51C29F21EDEF480035FACC /* MineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F51C29D21EDEF480035FACC /* MineTableViewCell.xib */; };
 		197ADF0721EC902900468EAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF0621EC902900468EAA /* AppDelegate.swift */; };
-		197ADF0921EC902900468EAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF0821EC902900468EAA /* ViewController.swift */; };
+		197ADF0921EC902900468EAA /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF0821EC902900468EAA /* CalendarViewController.swift */; };
 		197ADF0C21EC902900468EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197ADF0A21EC902900468EAA /* Main.storyboard */; };
 		197ADF0E21EC902B00468EAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 197ADF0D21EC902B00468EAA /* Assets.xcassets */; };
 		197ADF1121EC902B00468EAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197ADF0F21EC902B00468EAA /* LaunchScreen.storyboard */; };
 		197ADF1D21ECDBB800468EAA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */; };
 		197ADF1F21ECEC5B00468EAA /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */; };
+		5B6E13FAD5D695BF78192EE0 /* Pods_Final_DaysMatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D06B2DA2013C8F886652551 /* Pods_Final_DaysMatter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F202C4F21EDAEE100D7B07B /* Final_DaysMatter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Final_DaysMatter-Bridging-Header.h"; sourceTree = "<group>"; };
+		0F51C29C21EDEF480035FACC /* MineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTableViewCell.swift; sourceTree = "<group>"; };
+		0F51C29D21EDEF480035FACC /* MineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineTableViewCell.xib; sourceTree = "<group>"; };
 		197ADF0321EC902900468EAA /* Final_DaysMatter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Final_DaysMatter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		197ADF0621EC902900468EAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		197ADF0821EC902900468EAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		197ADF0821EC902900468EAA /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		197ADF0B21EC902900468EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		197ADF0D21EC902B00468EAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		197ADF1021EC902B00468EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		197ADF1221EC902B00468EAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		7D06B2DA2013C8F886652551 /* Pods_Final_DaysMatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_DaysMatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C927461CD3BF05C448BE722B /* Pods-Final_DaysMatter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_DaysMatter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Final_DaysMatter/Pods-Final_DaysMatter.debug.xcconfig"; sourceTree = "<group>"; };
+		DD99EAA41FDBD497EE88EBCA /* Pods-Final_DaysMatter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_DaysMatter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Final_DaysMatter/Pods-Final_DaysMatter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +42,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6E13FAD5D695BF78192EE0 /* Pods_Final_DaysMatter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F51C29B21EDEDF70035FACC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0F51C29C21EDEF480035FACC /* MineTableViewCell.swift */,
+				0F51C29D21EDEF480035FACC /* MineTableViewCell.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		197ADEFA21EC902900468EAA = {
 			isa = PBXGroup;
 			children = (
+				0F51C29B21EDEDF70035FACC /* UI */,
 				197ADF0521EC902900468EAA /* Final_DaysMatter */,
 				197ADF0421EC902900468EAA /* Products */,
+				2F8C9F13BB542FC66191148C /* Pods */,
+				6B3D422F8340A9C94D2CBE55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,15 +81,33 @@
 			isa = PBXGroup;
 			children = (
 				197ADF0621EC902900468EAA /* AppDelegate.swift */,
-				197ADF0821EC902900468EAA /* ViewController.swift */,
+				197ADF0821EC902900468EAA /* CalendarViewController.swift */,
 				197ADF0A21EC902900468EAA /* Main.storyboard */,
 				197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */,
 				197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */,
 				197ADF0D21EC902B00468EAA /* Assets.xcassets */,
 				197ADF0F21EC902B00468EAA /* LaunchScreen.storyboard */,
 				197ADF1221EC902B00468EAA /* Info.plist */,
+				0F202C4F21EDAEE100D7B07B /* Final_DaysMatter-Bridging-Header.h */,
 			);
 			path = Final_DaysMatter;
+			sourceTree = "<group>";
+		};
+		2F8C9F13BB542FC66191148C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C927461CD3BF05C448BE722B /* Pods-Final_DaysMatter.debug.xcconfig */,
+				DD99EAA41FDBD497EE88EBCA /* Pods-Final_DaysMatter.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6B3D422F8340A9C94D2CBE55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D06B2DA2013C8F886652551 /* Pods_Final_DaysMatter.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 197ADF1521EC902B00468EAA /* Build configuration list for PBXNativeTarget "Final_DaysMatter" */;
 			buildPhases = (
+				3C80178CED27F1D31E43EC90 /* [CP] Check Pods Manifest.lock */,
 				197ADEFF21EC902900468EAA /* Sources */,
 				197ADF0021EC902900468EAA /* Frameworks */,
 				197ADF0121EC902900468EAA /* Resources */,
+				F29463E3F437EC438C64083B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -102,6 +144,7 @@
 				TargetAttributes = {
 					197ADF0221EC902900468EAA = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -130,11 +173,59 @@
 			files = (
 				197ADF1121EC902B00468EAA /* LaunchScreen.storyboard in Resources */,
 				197ADF0E21EC902B00468EAA /* Assets.xcassets in Resources */,
+				0F51C29F21EDEF480035FACC /* MineTableViewCell.xib in Resources */,
 				197ADF0C21EC902900468EAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C80178CED27F1D31E43EC90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Final_DaysMatter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F29463E3F437EC438C64083B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Final_DaysMatter/Pods-Final_DaysMatter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Final_DaysMatter/Pods-Final_DaysMatter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		197ADEFF21EC902900468EAA /* Sources */ = {
@@ -143,8 +234,9 @@
 			files = (
 				197ADF1D21ECDBB800468EAA /* NavigationViewController.swift in Sources */,
 				197ADF1F21ECEC5B00468EAA /* DiscoverViewController.swift in Sources */,
-				197ADF0921EC902900468EAA /* ViewController.swift in Sources */,
+				197ADF0921EC902900468EAA /* CalendarViewController.swift in Sources */,
 				197ADF0721EC902900468EAA /* AppDelegate.swift in Sources */,
+				0F51C29E21EDEF480035FACC /* MineTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,8 +380,10 @@
 		};
 		197ADF1621EC902B00468EAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C927461CD3BF05C448BE722B /* Pods-Final_DaysMatter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6M3JBX96Z9;
 				INFOPLIST_FILE = Final_DaysMatter/Info.plist;
@@ -297,17 +391,28 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"FSCalendar\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "cuc.edu.201608213011.Final-DaysMatter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Final_DaysMatter/Final_DaysMatter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
 		197ADF1721EC902B00468EAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD99EAA41FDBD497EE88EBCA /* Pods-Final_DaysMatter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6M3JBX96Z9;
 				INFOPLIST_FILE = Final_DaysMatter/Info.plist;
@@ -315,10 +420,18 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"FSCalendar\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "cuc.edu.201608213011.Final-DaysMatter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Final_DaysMatter/Final_DaysMatter-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};
