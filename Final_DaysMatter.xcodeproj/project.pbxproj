@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F51C29E21EDEF480035FACC /* MineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51C29C21EDEF480035FACC /* MineTableViewCell.swift */; };
-		0F51C29F21EDEF480035FACC /* MineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F51C29D21EDEF480035FACC /* MineTableViewCell.xib */; };
+		0FAB58E621F0C7EA00C7E791 /* DairyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB58E521F0C7EA00C7E791 /* DairyDetailViewController.swift */; };
+		0FAB58EA21F1ACD100C7E791 /* DairyListTableViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB58E921F1ACD000C7E791 /* DairyListTableViewItem.swift */; };
 		197ADF0721EC902900468EAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF0621EC902900468EAA /* AppDelegate.swift */; };
 		197ADF0921EC902900468EAA /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF0821EC902900468EAA /* CalendarViewController.swift */; };
 		197ADF0C21EC902900468EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197ADF0A21EC902900468EAA /* Main.storyboard */; };
@@ -21,8 +21,8 @@
 
 /* Begin PBXFileReference section */
 		0F202C4F21EDAEE100D7B07B /* Final_DaysMatter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Final_DaysMatter-Bridging-Header.h"; sourceTree = "<group>"; };
-		0F51C29C21EDEF480035FACC /* MineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTableViewCell.swift; sourceTree = "<group>"; };
-		0F51C29D21EDEF480035FACC /* MineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineTableViewCell.xib; sourceTree = "<group>"; };
+		0FAB58E521F0C7EA00C7E791 /* DairyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyDetailViewController.swift; sourceTree = "<group>"; };
+		0FAB58E921F1ACD000C7E791 /* DairyListTableViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyListTableViewItem.swift; sourceTree = "<group>"; };
 		197ADF0321EC902900468EAA /* Final_DaysMatter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Final_DaysMatter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		197ADF0621EC902900468EAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		197ADF0821EC902900468EAA /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -49,19 +49,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F51C29B21EDEDF70035FACC /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				0F51C29C21EDEF480035FACC /* MineTableViewCell.swift */,
-				0F51C29D21EDEF480035FACC /* MineTableViewCell.xib */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		197ADEFA21EC902900468EAA = {
 			isa = PBXGroup;
 			children = (
-				0F51C29B21EDEDF70035FACC /* UI */,
 				197ADF0521EC902900468EAA /* Final_DaysMatter */,
 				197ADF0421EC902900468EAA /* Products */,
 				2F8C9F13BB542FC66191148C /* Pods */,
@@ -82,7 +72,9 @@
 			children = (
 				197ADF0621EC902900468EAA /* AppDelegate.swift */,
 				197ADF0821EC902900468EAA /* CalendarViewController.swift */,
+				0FAB58E921F1ACD000C7E791 /* DairyListTableViewItem.swift */,
 				197ADF0A21EC902900468EAA /* Main.storyboard */,
+				0FAB58E521F0C7EA00C7E791 /* DairyDetailViewController.swift */,
 				197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */,
 				197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */,
 				197ADF0D21EC902B00468EAA /* Assets.xcassets */,
@@ -173,7 +165,6 @@
 			files = (
 				197ADF1121EC902B00468EAA /* LaunchScreen.storyboard in Resources */,
 				197ADF0E21EC902B00468EAA /* Assets.xcassets in Resources */,
-				0F51C29F21EDEF480035FACC /* MineTableViewCell.xib in Resources */,
 				197ADF0C21EC902900468EAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,10 +224,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				197ADF1D21ECDBB800468EAA /* NavigationViewController.swift in Sources */,
+				0FAB58E621F0C7EA00C7E791 /* DairyDetailViewController.swift in Sources */,
 				197ADF1F21ECEC5B00468EAA /* DiscoverViewController.swift in Sources */,
 				197ADF0921EC902900468EAA /* CalendarViewController.swift in Sources */,
+				0FAB58EA21F1ACD100C7E791 /* DairyListTableViewItem.swift in Sources */,
 				197ADF0721EC902900468EAA /* AppDelegate.swift in Sources */,
-				0F51C29E21EDEF480035FACC /* MineTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
