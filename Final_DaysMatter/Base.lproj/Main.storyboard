@@ -714,7 +714,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="103.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="discription" translatesAutoresizingMaskIntoConstraints="NO" id="SWu-Xp-Tiv">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="discriptionItem" translatesAutoresizingMaskIntoConstraints="NO" id="SWu-Xp-Tiv">
                                                     <rect key="frame" x="20" y="41" width="23" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -742,7 +742,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="92N-bL-I3u">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dateItem" translatesAutoresizingMaskIntoConstraints="NO" id="92N-bL-I3u">
                                                     <rect key="frame" x="20" y="11" width="21" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -785,7 +785,7 @@
                                                     <rect key="frame" x="360" y="10" width="22" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cycle" translatesAutoresizingMaskIntoConstraints="NO" id="Xka-vO-7nQ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cycleItem" translatesAutoresizingMaskIntoConstraints="NO" id="Xka-vO-7nQ">
                                                     <rect key="frame" x="20" y="13" width="24" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -799,7 +799,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="notification" translatesAutoresizingMaskIntoConstraints="NO" id="GcH-bD-0bj">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="notificationItem" translatesAutoresizingMaskIntoConstraints="NO" id="GcH-bD-0bj">
                                                     <rect key="frame" x="20" y="11" width="21" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -829,9 +829,15 @@
                     <navigationItem key="navigationItem" title="添加" id="NGN-Zd-sY3">
                         <barButtonItem key="leftBarButtonItem" image="prev" id="VA6-Dz-MRI">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancel" destination="vvC-rh-RX5" id="kfN-f0-XcL"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="8si-80-cr2">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="save" destination="vvC-rh-RX5" id="ABP-eC-wIQ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -960,11 +966,11 @@
         <image name=" 发现 2" width="30" height="24"/>
         <image name=" 日记" width="18" height="18"/>
         <image name="cellLabelWeekend" width="5" height="85"/>
-        <image name="cycle" width="40" height="25"/>
-        <image name="date" width="32" height="34"/>
-        <image name="discription" width="38" height="39"/>
+        <image name="cycleItem" width="40" height="25"/>
+        <image name="dateItem" width="32" height="34"/>
+        <image name="discriptionItem" width="38" height="39"/>
         <image name="next" width="10" height="16"/>
-        <image name="notification" width="34" height="36"/>
+        <image name="notificationItem" width="34" height="36"/>
         <image name="prev" width="10" height="16"/>
         <image name="titleItem" width="37" height="37"/>
         <image name="广场" width="750" height="2642"/>

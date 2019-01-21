@@ -8,6 +8,17 @@
 
 import UIKit
 
+protocol AddItemViewControllerDelegate: class {
+    
+    func addItemViewControllerDidCancel(_ controller: ItemDetailTableViewController)
+    
+    func addItemViewController(_ controller: ItemDetailTableViewController,
+                               didFinishAdding item: DaysMatterItem)
+    func addItemViewController(_ controller: ItemDetailTableViewController, didFinishEditing item: DaysMatterItem)
+}
+
+
+
 class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate {
     
     
@@ -17,7 +28,24 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate 
     @IBOutlet weak var discriptionTextField: UITextField!
     
     var itemEditing: DaysMatterItem?
+    weak var delegate: AddItemViewControllerDelegate?
+
     
+    @IBAction func save(){
+        let item = DaysMatterItem()
+        item.title = titleTextField.text!
+        item.date = dateTextField.text!
+        item.discription = discriptionTextField.text!
+        print(item.title)
+        
+        delegate?.addItemViewController(self, didFinishAdding: item)
+    }
+    
+    @IBAction func cancel(){
+        delegate?.addItemViewControllerDidCancel(self)
+        //navigationController?.popViewController(animated:true)
+        
+    }
     
     //MARK: - datepicker
     // create date picker
