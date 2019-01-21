@@ -686,7 +686,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="title" translatesAutoresizingMaskIntoConstraints="NO" id="qXR-ac-m4U">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="titleItem" translatesAutoresizingMaskIntoConstraints="NO" id="qXR-ac-m4U">
                                                     <rect key="frame" x="20" y="12" width="19" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -827,7 +827,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="添加" id="NGN-Zd-sY3">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VA6-Dz-MRI">
+                        <barButtonItem key="leftBarButtonItem" image="prev" id="VA6-Dz-MRI">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="8si-80-cr2">
@@ -966,7 +966,7 @@
         <image name="next" width="10" height="16"/>
         <image name="notification" width="34" height="36"/>
         <image name="prev" width="10" height="16"/>
-        <image name="title" width="37" height="37"/>
+        <image name="titleItem" width="37" height="37"/>
         <image name="广场" width="750" height="2642"/>
     </resources>
     <inferredMetricsTieBreakers>
