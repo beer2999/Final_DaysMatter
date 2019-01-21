@@ -27,14 +27,17 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - <今日数据和带事件日期Array>
     var today:NSDate = Date() as NSDate
-    var datesWithEvent = ["2019/01/04/Friday", "2019/01/12/Saturday", "2018/12/28/Friday", "2018/12/30/Sunday"]
+//    var datesWithDairy = ["2019/01/04/Friday", "2019/01/06/Sunday"]
+    var datesWithDairy = [String]()
     
+    var selectDate = String()
+
     // MARK: - <临时dairylisttableviewitem数据>
-    var items: [DiaryListTableViewItem]
+    var items: [DairyListTableViewItem]
     required init?(coder aDecoder: NSCoder) {
-        items = [DiaryListTableViewItem]()
+        items = [DairyListTableViewItem]()
         
-        let row0item = DiaryListTableViewItem()
+        let row0item = DairyListTableViewItem()
         row0item.Day = "04"
         row0item.Month = "01"
         row0item.Year = "2019"
@@ -44,7 +47,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         row0item.DairyContent = "Hi！欢迎使用倒数日日记，选择特定日期即可点击右上角+就可以记录你的当日生活啦！"
         items.append(row0item)
 
-        let row1item = DiaryListTableViewItem()
+        let row1item = DairyListTableViewItem()
         row1item.Day = "06"
         row1item.Month = "01"
         row1item.Year = "2019"
@@ -56,6 +59,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
         super.init(coder: aDecoder)
         loadDiaryListTableViewItems()
+//        readDatesWithDairy()
     }
     
     // MARK: - <ViewDidLoad>
@@ -70,10 +74,14 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         self.calendar.appearance.headerMinimumDissolvedAlpha = 0;//调整header前后月份标签静止时刻透明
         self.calendar.appearance.headerDateFormat = "yyyy年MM月"; //调整日历header的年月格式
         self.calendar.appearance.headerTitleFont = UIFont.systemFont(ofSize: 20)
-
+        self.calendar.select(today as Date)
+        
         //清除分割线颜色和group顶部留白
         tableView.separatorColor = UIColor.clear
         tableView.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
+        
+        print(datesWithDairy)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,6 +90,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
             let navigationController = segue.destination as! UINavigationController
             let controller = navigationController.topViewController as! DairyDetailViewController
             controller.delegate = self
+            controller.dateData = selectDate
             
         } else if segue.identifier == "EditDairy"{
             
@@ -122,7 +131,9 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - <设置工作日和周末颜色区别>
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
         let key = self.dateFormatter.string(from: date)
-        if self.datesWithEvent.contains(key){
+        if key == self.dateFormatter.string(from: today as Date){
+            return #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        }else if self.datesWithDairy.contains(key){
             let array = key.components(separatedBy: "/")
             print(array)
             if array[3] == "Saturday" || array[3] == "Sunday"{
@@ -137,19 +148,13 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let selectDay = self.dateFormatter.string(from: date)
         print(selectDay.components(separatedBy: "/"))
-//        if self.datesWithEvent.contains(selectDay){
-//            self.addButton.isEnabled = false
-//            print("false")
-//        }else{
-//            self.addButton.isEnabled = true
-//            print("true")
-//        }
-        if selectDay == self.dateFormatter.string(from: today as Date){
+        if self.datesWithDairy.contains(selectDay){
+            self.addButton.isEnabled = false
+            print("false")
+        }else{
             self.addButton.isEnabled = true
             print("true")
-        }else{
-            self.addButton.isEnabled = false
-            print("true")
+            selectDate = selectDay
         }
         if monthPosition == .next || monthPosition == .previous {
             calendar.setCurrentPage(date, animated: true)
@@ -157,7 +162,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     //获取编辑页面delegate
-    func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingAdding item: DiaryListTableViewItem) {
+    func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingAdding item: DairyListTableViewItem) {
         let newRowIndex = items.count
         items.append(item)
         
@@ -167,10 +172,11 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
         dismiss(animated: true, completion: nil)
         saveDiaryListTableViewItems()
+//        saveDatesWithDairy()
         
     }
     
-    func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingEditing item: DiaryListTableViewItem) {
+    func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingEditing item: DairyListTableViewItem) {
         if let index = items.index(of: item){
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath){
@@ -179,6 +185,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         dismiss(animated: true, completion: nil)
         saveDiaryListTableViewItems()
+//        saveDatesWithDairy()
     
     }
     
@@ -189,24 +196,31 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    func configureLebal(for cell: UITableViewCell, with item: DiaryListTableViewItem) {
+    func configureLebal(for cell: UITableViewCell, with item: DairyListTableViewItem) {
         let dayLabel = cell.viewWithTag(1) as! UILabel
         let monthLabel = cell.viewWithTag(2) as! UILabel
         let yearLabel = cell.viewWithTag(3) as! UILabel
         let dairyTitleLabel = cell.viewWithTag(4) as! UILabel
         let dairyContentLabel = cell.viewWithTag(5) as! UILabel
         let weekImageView = cell.viewWithTag(6) as! UIImageView
+        let dateDataLabel = cell.viewWithTag(7) as! UILabel
         
         dayLabel.text = item.Day
         monthLabel.text = item.Month
         yearLabel.text = item.Year
         dairyTitleLabel.text = item.DairyTitle
         dairyContentLabel.text = item.DairyContent
+        dateDataLabel.text = item.dateData
         if item.Week == "Saturday" || item.Week == "Sunday"{
             weekImageView.image = UIImage(named: "cellLabelWeekend")
         }else{
             weekImageView.image = UIImage(named: "cellLabelWeekday")
         }
+        
+        let dairyDate = dateDataLabel.text as! String
+        datesWithDairy.append(dairyDate)
+        print(datesWithDairy)
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
@@ -217,33 +231,60 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
-    // MARK: - <设置数据加载+保存>
+    // MARK: - <获取数据文件路径>
     func documentDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
     
     func dataFilePath() -> URL{
-        return documentDirectory().appendingPathComponent("DiaryList1.plist")
+        return documentDirectory().appendingPathComponent("DairyListItems.plist")
+    }
+    
+    // MARK: - <对items模型进行归档和解档>
+    func saveDiaryListTableViewItems(){
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.encode(items, forKey: "DairyListTableViewItems")
+        archiver.finishEncoding()
+        data.write(to: dataFilePath(), atomically: true)
     }
     
     func loadDiaryListTableViewItems(){
         let path = dataFilePath()
         if let data = try? Data(contentsOf: path){
             let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            items = unarchiver.decodeObject(forKey: "DiaryListTableViewItems")
-                as! [DiaryListTableViewItem]
+            items = unarchiver.decodeObject(forKey: "DairyListTableViewItems")
+                as! [DairyListTableViewItem]
+            print(items)
             unarchiver.finishDecoding()
         }
     }
     
-    func saveDiaryListTableViewItems(){
-        let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWith: data)
-        archiver.encode(items, forKey: "DiaryListTableViewItems")
-        archiver.finishEncoding()
-        data.write(to: dataFilePath(), atomically: true)
-    }
-    
+    // MARK: - <针对items中的dateData日期数据进行归档和存档>  多此一举
+//    func dataWithDairyFilePath() -> URL{
+//        return documentDirectory().appendingPathComponent("dataWithDairy.plist")
+//    }
+
+//    func readDatesWithDairy(){
+//        let path = dataWithDairyFilePath()
+//        if let data = try? Data(contentsOf: path){
+//            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+//            datesWithDairy = unarchiver.decodeObject(forKey: "dateData")
+//                as! Array
+//            print(datesWithDairy)
+//            unarchiver.finishDecoding()
+//        }
+//    }
+//
+//    func saveDatesWithDairy(){
+//        let data = NSMutableData()
+//        let archiver = NSKeyedArchiver(forWritingWith: data)
+//        for index in 0..<items.count {
+//            archiver.encode(items[index].dateData, forKey: "dateData")
+//        }
+//        archiver.finishEncoding()
+//        data.write(to: dataFilePath(), atomically: true)
+//    }
 }
 

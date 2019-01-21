@@ -9,8 +9,8 @@
 import UIKit
 
 protocol DairyDetailViewControllerDelegate: class {
-    func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingAdding item: DiaryListTableViewItem)
-    func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingEditing item: DiaryListTableViewItem)
+    func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingAdding item: DairyListTableViewItem)
+    func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingEditing item: DairyListTableViewItem)
 }
 
 class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate{
@@ -19,6 +19,7 @@ class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UIT
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var weekLabel: UILabel!
+    @IBOutlet weak var dateDataLabel: UILabel!
     
     @IBOutlet weak var dairyTitleField: UITextField!
     @IBOutlet weak var dairyContentField: UITextView!
@@ -32,8 +33,8 @@ class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UIT
         return formatter
     }()
     
-    var itemToEdit: DiaryListTableViewItem?
-    var date:NSDate = Date() as NSDate
+    var itemToEdit: DairyListTableViewItem?
+    var dateData = String()
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,16 +47,18 @@ class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UIT
         saveBarButton.isEnabled = false
         
         self.tableView.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
-        let dateData = self.dateFormatter.string(from: date as Date).components(separatedBy: "/")
-        let day = dateData[2]
-        let month = dateData[1]
-        let year = dateData[0]
-        let week = dateData[3]
+        
+        let dateDataArray = dateData.components(separatedBy: "/")
+        let day = dateDataArray[2]
+        let month = dateDataArray[1]
+        let year = dateDataArray[0]
+        let week = dateDataArray[3]
         
         dayLabel.text = day
         monthLabel.text = month
         yearLabel.text = year
-        
+        dateDataLabel.text = dateData
+    
         if week == "Monday"{
             weekLabel.text = "星期一"
         }else if week == "Tuesday"{
@@ -77,6 +80,7 @@ class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UIT
             dayLabel.text = item.Day
             monthLabel.text = item.Month
             yearLabel.text = item.Year
+            dateDataLabel.text = item.dateData
             if item.Week == "Monday"{
                 weekLabel.text = "星期一"
             }else if item.Week == "Tuesday"{
@@ -109,6 +113,7 @@ class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UIT
             item.Year = yearLabel.text!
             item.Month = monthLabel.text!
             item.Week = weekLabel.text!
+            item.dateData = dateDataLabel.text!
             if weekLabel.text == "星期一"{
                 item.Week = "Monday"
             }else if weekLabel.text == "星期二"{
@@ -129,11 +134,12 @@ class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UIT
             delegate?.dairyDetailViewController(self, didFinishingEditing: item)
             
         } else {
-            let item = DiaryListTableViewItem()
+            let item = DairyListTableViewItem()
             item.Day = dayLabel.text!
             item.Year = yearLabel.text!
             item.Month = monthLabel.text!
             item.Week = weekLabel.text!
+            item.dateData = dateDataLabel.text!
             if weekLabel.text == "星期一"{
                 item.Week = "Monday"
             }else if weekLabel.text == "星期二"{

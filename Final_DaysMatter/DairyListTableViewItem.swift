@@ -7,7 +7,7 @@
 //
 import Foundation
 
-class DiaryListTableViewItem: NSObject, NSCoding {
+class DairyListTableViewItem: NSObject, NSCoding {
     
     var Day = ""
     var Month = ""
@@ -22,6 +22,7 @@ class DiaryListTableViewItem: NSObject, NSCoding {
         aCoder.encode(Month, forKey: "Month")
         aCoder.encode(Year, forKey: "Year")
         aCoder.encode(Week, forKey: "Week")
+        aCoder.encode(dateData, forKey: "dateData")
         aCoder.encode(DairyTitle, forKey: "DairyTitle")
         aCoder.encode(DairyContent, forKey: "DairyContent")
     }
@@ -30,8 +31,10 @@ class DiaryListTableViewItem: NSObject, NSCoding {
         Month = aDecoder.decodeObject(forKey: "Month") as! String
         Year = aDecoder.decodeObject(forKey: "Year") as! String
         Week = aDecoder.decodeObject(forKey: "Week") as! String
+        dateData = aDecoder.decodeObject(forKey: "dateData") as! String
         DairyTitle = aDecoder.decodeObject(forKey: "DairyTitle") as! String
         DairyContent = aDecoder.decodeObject(forKey: "DairyContent") as! String
+        
         super.init()
     }
     override init(){
