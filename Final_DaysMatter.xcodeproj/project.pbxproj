@@ -17,6 +17,9 @@
 		197ADF1D21ECDBB800468EAA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */; };
 		197ADF1F21ECEC5B00468EAA /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */; };
 		19E92B3921F5BA6A001E0C6B /* DaysMatterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E92B3821F5BA6A001E0C6B /* DaysMatterListViewController.swift */; };
+		19E92B3C21F5C107001E0C6B /* DaysMatterItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E92B3A21F5C107001E0C6B /* DaysMatterItemTableViewCell.swift */; };
+		19E92B3D21F5C107001E0C6B /* DaysMatterItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19E92B3B21F5C107001E0C6B /* DaysMatterItemTableViewCell.xib */; };
+		19E92B4121F5C205001E0C6B /* DaysMatterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E92B4021F5C205001E0C6B /* DaysMatterItem.swift */; };
 		5B6E13FAD5D695BF78192EE0 /* Pods_Final_DaysMatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D06B2DA2013C8F886652551 /* Pods_Final_DaysMatter.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +37,9 @@
 		197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		19E92B3821F5BA6A001E0C6B /* DaysMatterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysMatterListViewController.swift; sourceTree = "<group>"; };
+		19E92B3A21F5C107001E0C6B /* DaysMatterItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysMatterItemTableViewCell.swift; sourceTree = "<group>"; };
+		19E92B3B21F5C107001E0C6B /* DaysMatterItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaysMatterItemTableViewCell.xib; sourceTree = "<group>"; };
+		19E92B4021F5C205001E0C6B /* DaysMatterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysMatterItem.swift; sourceTree = "<group>"; };
 		7D06B2DA2013C8F886652551 /* Pods_Final_DaysMatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_DaysMatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C927461CD3BF05C448BE722B /* Pods-Final_DaysMatter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_DaysMatter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Final_DaysMatter/Pods-Final_DaysMatter.debug.xcconfig"; sourceTree = "<group>"; };
 		DD99EAA41FDBD497EE88EBCA /* Pods-Final_DaysMatter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_DaysMatter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Final_DaysMatter/Pods-Final_DaysMatter.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +82,9 @@
 				197ADF0821EC902900468EAA /* CalendarViewController.swift */,
 				0FAB58E921F1ACD000C7E791 /* DairyListTableViewItem.swift */,
 				197ADF0A21EC902900468EAA /* Main.storyboard */,
+				19E92B4021F5C205001E0C6B /* DaysMatterItem.swift */,
+				19E92B3A21F5C107001E0C6B /* DaysMatterItemTableViewCell.swift */,
+				19E92B3B21F5C107001E0C6B /* DaysMatterItemTableViewCell.xib */,
 				19E92B3821F5BA6A001E0C6B /* DaysMatterListViewController.swift */,
 				0FAB58E521F0C7EA00C7E791 /* DairyDetailViewController.swift */,
 				197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */,
@@ -166,6 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19E92B3D21F5C107001E0C6B /* DaysMatterItemTableViewCell.xib in Resources */,
 				197ADF1121EC902B00468EAA /* LaunchScreen.storyboard in Resources */,
 				197ADF0E21EC902B00468EAA /* Assets.xcassets in Resources */,
 				197ADF0C21EC902900468EAA /* Main.storyboard in Resources */,
@@ -228,8 +238,10 @@
 			files = (
 				197ADF1D21ECDBB800468EAA /* NavigationViewController.swift in Sources */,
 				19E92B3921F5BA6A001E0C6B /* DaysMatterListViewController.swift in Sources */,
+				19E92B4121F5C205001E0C6B /* DaysMatterItem.swift in Sources */,
 				0FAB58E621F0C7EA00C7E791 /* DairyDetailViewController.swift in Sources */,
 				197ADF1F21ECEC5B00468EAA /* DiscoverViewController.swift in Sources */,
+				19E92B3C21F5C107001E0C6B /* DaysMatterItemTableViewCell.swift in Sources */,
 				197ADF0921EC902900468EAA /* CalendarViewController.swift in Sources */,
 				0FAB58EA21F1ACD100C7E791 /* DairyListTableViewItem.swift in Sources */,
 				197ADF0721EC902900468EAA /* AppDelegate.swift in Sources */,
