@@ -909,6 +909,11 @@
                                 <state key="normal" title="编    辑">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="vvC-rh-RX5" kind="show" identifier="EditDaysMatter" id="b72-f8-IBl"/>
                                 </connections>
@@ -921,6 +926,11 @@
                                 <state key="normal" title="置    顶">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="topped" destination="LtQ-3i-jAv" eventType="touchUpInside" id="bW4-kB-b8i"/>
                                 </connections>
@@ -1089,7 +1099,7 @@
         <image name="广场" width="750" height="2642"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cZk-h2-9MZ"/>
+        <segue reference="b72-f8-IBl"/>
         <segue reference="Veo-hB-gdm"/>
     </inferredMetricsTieBreakers>
 </document>
