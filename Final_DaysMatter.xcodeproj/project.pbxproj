@@ -16,6 +16,7 @@
 		197ADF1121EC902B00468EAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197ADF0F21EC902B00468EAA /* LaunchScreen.storyboard */; };
 		197ADF1D21ECDBB800468EAA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */; };
 		197ADF1F21ECEC5B00468EAA /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */; };
+		19E92B3921F5BA6A001E0C6B /* DaysMatterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E92B3821F5BA6A001E0C6B /* DaysMatterListViewController.swift */; };
 		5B6E13FAD5D695BF78192EE0 /* Pods_Final_DaysMatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D06B2DA2013C8F886652551 /* Pods_Final_DaysMatter.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		197ADF1221EC902B00468EAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		19E92B3821F5BA6A001E0C6B /* DaysMatterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysMatterListViewController.swift; sourceTree = "<group>"; };
 		7D06B2DA2013C8F886652551 /* Pods_Final_DaysMatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_DaysMatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C927461CD3BF05C448BE722B /* Pods-Final_DaysMatter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_DaysMatter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Final_DaysMatter/Pods-Final_DaysMatter.debug.xcconfig"; sourceTree = "<group>"; };
 		DD99EAA41FDBD497EE88EBCA /* Pods-Final_DaysMatter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_DaysMatter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Final_DaysMatter/Pods-Final_DaysMatter.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				197ADF0821EC902900468EAA /* CalendarViewController.swift */,
 				0FAB58E921F1ACD000C7E791 /* DairyListTableViewItem.swift */,
 				197ADF0A21EC902900468EAA /* Main.storyboard */,
+				19E92B3821F5BA6A001E0C6B /* DaysMatterListViewController.swift */,
 				0FAB58E521F0C7EA00C7E791 /* DairyDetailViewController.swift */,
 				197ADF1E21ECEC5B00468EAA /* DiscoverViewController.swift */,
 				197ADF1C21ECDBB800468EAA /* NavigationViewController.swift */,
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				197ADF1D21ECDBB800468EAA /* NavigationViewController.swift in Sources */,
+				19E92B3921F5BA6A001E0C6B /* DaysMatterListViewController.swift in Sources */,
 				0FAB58E621F0C7EA00C7E791 /* DairyDetailViewController.swift in Sources */,
 				197ADF1F21ECEC5B00468EAA /* DiscoverViewController.swift in Sources */,
 				197ADF0921EC902900468EAA /* CalendarViewController.swift in Sources */,
