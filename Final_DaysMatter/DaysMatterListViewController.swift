@@ -12,10 +12,12 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
    
    
     
- 
-    var items:[DaysMatterItem]
+    //MARK: - <Outlet & origin defination>
+    
     var nowTop: Int?
     
+    // build some data in Days Matter list
+    var items:[DaysMatterItem]
     required init?(coder aDecoder: NSCoder) {
         items = [DaysMatterItem]()
         
@@ -37,13 +39,14 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
         loadDaysMatterListTableViewItems()
     }
 
+    //Outlet
     @IBOutlet weak var topTitleLabel: UILabel!
     @IBOutlet weak var topCountLabel: UILabel!
     @IBOutlet weak var topDateLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
     
     
-    
+    //MARK: - <load view and segue>
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDaysMatterListTableViewItems()
@@ -55,6 +58,8 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //set segue and some data tranfer
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddDaysMatter" {
             let controller = segue.destination as! ItemDetailTableViewController
@@ -72,7 +77,8 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
         }
     }
     
-    
+    // MARK: - <encode and decode the item model>
+    // save in .plist
     func documentDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
@@ -82,7 +88,7 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
         return documentDirectory().appendingPathComponent("DaysMatterListItems.plist")
     }
     
-    // MARK: - <对items模型进行归档和解档>
+    // encode
     func saveDaysMatterListTableViewItems(){
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWith: data)
@@ -91,6 +97,7 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
         data.write(to: dataFilePath(), atomically: true)
     }
     
+    //decode
     func loadDaysMatterListTableViewItems(){
         let path = dataFilePath()
         if let data = try? Data(contentsOf: path){
@@ -102,20 +109,23 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
         }
     }
     
-    
+    // MARK: - <tableview delegate>
+    // set row height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     
+    // set row number
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
+    //set every row's content
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DaysMatterItemTableViewCell = self.tableview.dequeueReusableCell(withIdentifier: "cell") as! DaysMatterItemTableViewCell
         
         let item = items[indexPath.row] //每个行
-        //print(item.date)
+        
         
         cell.itemDateLabel.text = item.date
         
@@ -134,8 +144,8 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
             cell.itemCountLabel.textColor = #colorLiteral(red: 0.3771707118, green: 0.418082118, blue: 0.7708801627, alpha: 1)
             item.status = 2
             
+             // 计算 倒数天数
             if myDate != nil{
-                // 计算 倒数天数
                 let goDate: NSDate = myDate! as NSDate
                 let interval: TimeInterval = goDate.timeIntervalSince(currentDate as Date)
                 let second = Int(round(interval))
@@ -149,8 +159,9 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
             cell.itemNameStatusLabel.text = item.title + " 还有"
             cell.itemCountLabel.textColor = #colorLiteral(red: 1, green: 0.8288275599, blue: 0, alpha: 1)
             item.status = 1
+            
+             // 计算 倒数天数
             if myDate != nil{
-                // 计算 倒数天数
                 let goDate: NSDate = myDate! as NSDate
                 //let currentDate: NSDate = NSDate()
                 let interval: TimeInterval = goDate.timeIntervalSince(currentDate as Date)
@@ -160,6 +171,7 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
                 cell.itemCountLabel.text = "\(days)"
             }
         }
+        // 判断是否置顶
         if item.isTopped == true{
             topCountLabel.text = cell.itemCountLabel.text
             topTitleLabel.text = cell.itemNameStatusLabel.text
@@ -169,6 +181,8 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
         return cell
     }
     
+    
+    // delete row
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         items.remove(at: indexPath.row)
         
@@ -177,10 +191,15 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
         saveDaysMatterListTableViewItems()
     }
     
+    
+    // MARK:- <delegate (from itemDetail and itemManager)>
+    
+    //添加页面返回执行
     func ItemDetailViewControllerDidCancel(_ controller: ItemDetailTableViewController) {
         navigationController?.popViewController(animated:true)
     }
     
+    //添加页面新添内容保存执行
     func ItemDetailViewController(_ controller: ItemDetailTableViewController, didFinishAdding item: DaysMatterItem) {
         print("finish Adding")
         let newRowIndex = items.count
@@ -194,16 +213,19 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
 
         saveDaysMatterListTableViewItems()
     }
-    
+    // 添加页面编辑 未在本view用到
     func ItemDetailViewController(_ controller: ItemDetailTableViewController, didFinishEditing item: DaysMatterItem) {
         
     }
+    
+    
+    // 管理页面 返回执行
     func ItemManagerViewControllerDidCancel(_ controller: ItemManagerViewController) {
         navigationController?.popViewController(animated:true)
-        
-
+    
     }
     
+    // 管理页面 点击置顶执行
     func ItemManagerViewController(_ controller: ItemManagerViewController, didFinishTopping item: DaysMatterItem) {
         
         for each in items{
@@ -276,6 +298,7 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
 
     }
     
+    // 管理页面 如数据被编辑 点返回执行
     func ItemManagerViewController(_ controller: ItemManagerViewController, didFinishEditing item: DaysMatterItem) {
        
         if let index = items.index(of: item){

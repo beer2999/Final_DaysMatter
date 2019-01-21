@@ -6,6 +6,8 @@
 //  Copyright © 2019 Alexa Wang. All rights reserved.
 //
 
+
+// 倒数日的cell 的 outlet们
 import UIKit
 
 class DaysMatterItemTableViewCell: UITableViewCell {

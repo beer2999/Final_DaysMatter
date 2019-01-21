@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// MARK: - <protocol>
 protocol ItemDetailViewControllerDelegate: class {
     
     func ItemDetailViewControllerDidCancel(_ controller: ItemDetailTableViewController)
@@ -21,7 +21,7 @@ protocol ItemDetailViewControllerDelegate: class {
 
 class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate {
     
-    
+    //MARK: - <Outlet & origin defination>
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
@@ -30,6 +30,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate 
     var itemEditing: DaysMatterItem?
     weak var delegate: ItemDetailViewControllerDelegate?
 
+    // create date picker (参考YouTube教程)
     lazy var datePicker: UIDatePicker = {
         
         let picker = UIDatePicker()
@@ -42,7 +43,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate 
     }()
     
     
-    // create date picker's toolbar(today&done)
+    // create date picker's toolbar(today&done) 参考youtube教程
     lazy var toolbar: UIToolbar = {
         
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
@@ -75,7 +76,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate 
     }()
     
     
-    //create dateformatter. use to show the date
+    //create dateformatter. use to show the date 参考youtube 教程
     lazy var dateFormatter: DateFormatter = {
         
         let formatter = DateFormatter()
@@ -88,37 +89,11 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate 
         return formatter
     }()
     
-    
-    @IBAction func save(){
-        if let itemEditing = itemEditing {
-            itemEditing.title = titleTextField.text!
-            itemEditing.discription = discriptionTextField.text!
-            itemEditing.date = dateTextField.text!
-            print("save")
-            delegate?.ItemDetailViewController(self, didFinishEditing: itemEditing)
-            
-        }else{
-            let item = DaysMatterItem()
-            item.title = titleTextField.text!
-            item.date = dateTextField.text!
-            item.discription = discriptionTextField.text!
-            print(item.title)
-            
-            delegate?.ItemDetailViewController(self, didFinishAdding: item)
-        }
-        
-    }
-    
-    @IBAction func cancel(){
-        delegate?.ItemDetailViewControllerDidCancel(self)
-        //navigationController?.popViewController(animated:true)
-        
-    }
-    
-    //MARK: - datepicker
-    // create date picker
+   
     
     
+    
+    // MARK: - <load view>
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -144,8 +119,36 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate 
         //textField.becomeFirstResponder()
     }
     
+    // MARK: - <Private Method>
     
+    @IBAction func save(){
+        //到manageer 界面
+        if let itemEditing = itemEditing {
+            itemEditing.title = titleTextField.text!
+            itemEditing.discription = discriptionTextField.text!
+            itemEditing.date = dateTextField.text!
+            delegate?.ItemDetailViewController(self, didFinishEditing: itemEditing)
+            
+        }else{ // 到list界面
+            let item = DaysMatterItem()
+            item.title = titleTextField.text!
+            item.date = dateTextField.text!
+            item.discription = discriptionTextField.text!
+            print(item.title)
+            delegate?.ItemDetailViewController(self, didFinishAdding: item)
+        }
+        
+    }
+    // cancel
+    @IBAction func cancel(){
+        delegate?.ItemDetailViewControllerDidCancel(self)
+        //navigationController?.popViewController(animated:true)
+        
+    }
     
+    // datepicker method （参考youtube教程）
+    
+    //every change use it
     @objc func datePickerChanged(_ sender: UIDatePicker) {
         
         dateTextField.text = dateFormatter.string(from: sender.date)
@@ -165,7 +168,7 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate 
     
     
 
-    // MARK: - Table view data source
+    // MARK: - Table view delegate
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

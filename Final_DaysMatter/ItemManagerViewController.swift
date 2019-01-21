@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - <protocol>
 protocol ItemManagerViewControllerDelegate: class {
 
     func ItemManagerViewControllerDidCancel(_ controller: ItemManagerViewController)
@@ -20,7 +21,7 @@ protocol ItemManagerViewControllerDelegate: class {
 
 class ItemManagerViewController: UIViewController, ItemDetailViewControllerDelegate {
     
-    
+    //MARK: - <Outlet & origin defination>
     
     var itemToEdit: DaysMatterItem?
     var countNum : String?
@@ -34,6 +35,8 @@ class ItemManagerViewController: UIViewController, ItemDetailViewControllerDeleg
     @IBOutlet weak var managerCount: UILabel!
     @IBOutlet weak var managerDate: UILabel!
     
+    
+    // MARK: - <load view and segue>
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +55,18 @@ class ItemManagerViewController: UIViewController, ItemDetailViewControllerDeleg
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditDaysMatter" {
+            
+            let controller = segue.destination as! ItemDetailTableViewController
+            controller.delegate = self
+            controller.itemEditing = itemToEdit
+            //print(itemToEdit!.title)
+        }
+    }
+    
+    // MARK: - <provate Method>
+    //点击置顶按钮
     @IBAction func topped(){
         if managerRealStatus.text == "0" {
             if let item = itemToEdit{
@@ -74,6 +89,7 @@ class ItemManagerViewController: UIViewController, ItemDetailViewControllerDeleg
         }
     
     }
+    // 点击返回按钮
     @IBAction func back(){
         if managerRealStatus.text == "0" {
             delegate?.ItemManagerViewControllerDidCancel(self)
@@ -89,16 +105,8 @@ class ItemManagerViewController: UIViewController, ItemDetailViewControllerDeleg
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditDaysMatter" {
-            
-            let controller = segue.destination as! ItemDetailTableViewController
-            controller.delegate = self 
-            controller.itemEditing = itemToEdit
-            //print(itemToEdit!.title)
-        }
-    }
-    
+   
+    // MARK:- <delegate (from itemDetail)>
     func ItemDetailViewControllerDidCancel(_ controller: ItemDetailTableViewController) {
         navigationController?.popViewController(animated:true)
     }
@@ -106,7 +114,7 @@ class ItemManagerViewController: UIViewController, ItemDetailViewControllerDeleg
     func ItemDetailViewController(_ controller: ItemDetailTableViewController, didFinishAdding item: DaysMatterItem) {
         navigationController?.popViewController(animated:true)
     }
-    
+    //如edit 则改变当前页面label.text
     func ItemDetailViewController(_ controller: ItemDetailTableViewController, didFinishEditing item: DaysMatterItem) {
         managerTitle.text = item.title
         managerDate.text = item.date
@@ -153,7 +161,6 @@ class ItemManagerViewController: UIViewController, ItemDetailViewControllerDeleg
         }
         
         navigationController?.popViewController(animated:true)
-
     }
 
     /*
