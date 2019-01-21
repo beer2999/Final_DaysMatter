@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol AddItemViewControllerDelegate: class {
+protocol ItemDetailViewControllerDelegate: class {
     
-    func addItemViewControllerDidCancel(_ controller: ItemDetailTableViewController)
+    func ItemDetailViewControllerDidCancel(_ controller: ItemDetailTableViewController)
     
-    func addItemViewController(_ controller: ItemDetailTableViewController,
+    func ItemDetailViewController(_ controller: ItemDetailTableViewController,
                                didFinishAdding item: DaysMatterItem)
-    func addItemViewController(_ controller: ItemDetailTableViewController, didFinishEditing item: DaysMatterItem)
+    func ItemDetailViewController(_ controller: ItemDetailTableViewController, didFinishEditing item: DaysMatterItem)
 }
 
 
@@ -28,27 +28,8 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate 
     @IBOutlet weak var discriptionTextField: UITextField!
     
     var itemEditing: DaysMatterItem?
-    weak var delegate: AddItemViewControllerDelegate?
+    weak var delegate: ItemDetailViewControllerDelegate?
 
-    
-    @IBAction func save(){
-        let item = DaysMatterItem()
-        item.title = titleTextField.text!
-        item.date = dateTextField.text!
-        item.discription = discriptionTextField.text!
-        print(item.title)
-        
-        delegate?.addItemViewController(self, didFinishAdding: item)
-    }
-    
-    @IBAction func cancel(){
-        delegate?.addItemViewControllerDidCancel(self)
-        //navigationController?.popViewController(animated:true)
-        
-    }
-    
-    //MARK: - datepicker
-    // create date picker
     lazy var datePicker: UIDatePicker = {
         
         let picker = UIDatePicker()
@@ -108,12 +89,51 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate 
     }()
     
     
+    @IBAction func save(){
+        if let itemEditing = itemEditing {
+            itemEditing.title = titleTextField.text!
+            itemEditing.discription = discriptionTextField.text!
+            itemEditing.date = dateTextField.text!
+            print("save")
+            delegate?.ItemDetailViewController(self, didFinishEditing: itemEditing)
+            
+        }else{
+            let item = DaysMatterItem()
+            item.title = titleTextField.text!
+            item.date = dateTextField.text!
+            item.discription = discriptionTextField.text!
+            print(item.title)
+            
+            delegate?.ItemDetailViewController(self, didFinishAdding: item)
+        }
+        
+    }
+    
+    @IBAction func cancel(){
+        delegate?.ItemDetailViewControllerDidCancel(self)
+        //navigationController?.popViewController(animated:true)
+        
+    }
+    
+    //MARK: - datepicker
+    // create date picker
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateTextField.text = dateFormatter.string(from: Date())
+        
         dateTextField.inputView = datePicker
         dateTextField.inputAccessoryView = toolbar
+        
+        if let itemEditing = itemEditing {
+            title = "修改"
+            dateTextField.text = itemEditing.date
+            titleTextField.text = itemEditing.title
+            discriptionTextField.text = itemEditing.discription
+        }else{
+            dateTextField.text = dateFormatter.string(from: Date())
+        }
         
         navigationItem.largeTitleDisplayMode = .never
 
@@ -147,15 +167,22 @@ class ItemDetailTableViewController: UITableViewController, UITextFieldDelegate 
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 2
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        var  num: Int = 1
+        
+        if section == 0{
+            num = 3
+        }else if section == 1 {
+            num = 2
+        }
+        return num
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

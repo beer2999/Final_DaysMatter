@@ -8,7 +8,8 @@
 
 import UIKit
 
-class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, AddItemViewControllerDelegate  {
+class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, ItemDetailViewControllerDelegate, ItemManagerViewControllerDelegate  {
+   
    
     
  
@@ -55,9 +56,19 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddItem" {
+        if segue.identifier == "AddDaysMatter" {
             let controller = segue.destination as! ItemDetailTableViewController
             controller.delegate = self
+        }else if segue.identifier == "ManageDaysMatter" {
+            let controller = segue.destination as! ItemManagerViewController
+            let sender = sender as! UITableViewCell
+            let label = sender.viewWithTag(10001) as! UILabel
+            controller.countNum = label.text
+            controller.delegate = self
+            if let indexPath = self.tableview.indexPath(for: sender ) {
+                controller.itemToEdit = items[indexPath.row]
+                //print(controller.itemToEdit?.title)
+            }
         }
     }
     
@@ -166,11 +177,11 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
         saveDaysMatterListTableViewItems()
     }
     
-    func addItemViewControllerDidCancel(_ controller: ItemDetailTableViewController) {
+    func ItemDetailViewControllerDidCancel(_ controller: ItemDetailTableViewController) {
         navigationController?.popViewController(animated:true)
     }
     
-    func addItemViewController(_ controller: ItemDetailTableViewController, didFinishAdding item: DaysMatterItem) {
+    func ItemDetailViewController(_ controller: ItemDetailTableViewController, didFinishAdding item: DaysMatterItem) {
         print("finish Adding")
         let newRowIndex = items.count
         items.append(item)
@@ -184,9 +195,147 @@ class DaysMatterListViewController: UIViewController, UITableViewDelegate,UITabl
         saveDaysMatterListTableViewItems()
     }
     
-    func addItemViewController(_ controller: ItemDetailTableViewController, didFinishEditing item: DaysMatterItem) {
+    func ItemDetailViewController(_ controller: ItemDetailTableViewController, didFinishEditing item: DaysMatterItem) {
         
     }
+    func ItemManagerViewControllerDidCancel(_ controller: ItemManagerViewController) {
+        navigationController?.popViewController(animated:true)
+        
+
+    }
+    
+    func ItemManagerViewController(_ controller: ItemManagerViewController, didFinishTopping item: DaysMatterItem) {
+        
+        for each in items{
+            if each.isTopped == true{
+                each.isTopped = false
+            }
+        }
+        item.isTopped = true
+        
+        if let index = items.index(of: item){
+            
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = self.tableview.cellForRow(at: indexPath) {
+                
+                let labelDate = cell.viewWithTag(100) as! UILabel
+                let labelTitle = cell.viewWithTag(10) as! UILabel
+                let labelCount = cell.viewWithTag(10001) as! UILabel
+                if item.status == 3{
+                    labelDate.text = item.date
+                    
+                    let myFormatter = DateFormatter()
+                    myFormatter.dateFormat = "MMM d, yyyy"
+                    let myDate = myFormatter.date(from: item.date)
+                    // find today
+                    let currentDate: NSDate = NSDate()
+                    // compare the date is passing or coming
+                    if myDate?.compare(currentDate as Date) == .orderedAscending
+                    {
+                        // it pass
+                        labelTitle.text = item.title + " 已经"
+                        labelCount.textColor = #colorLiteral(red: 0.3771707118, green: 0.418082118, blue: 0.7708801627, alpha: 1)
+                        item.status = 2
+                        
+                        if myDate != nil{
+                            // 计算 倒数天数
+                            let goDate: NSDate = myDate! as NSDate
+                            let interval: TimeInterval = goDate.timeIntervalSince(currentDate as Date)
+                            let second = Int(round(interval))
+                            let days = -second / 24 / 3600
+                            labelCount.text = "\(days)"
+                        }
+                    }
+                    if myDate?.compare(currentDate as Date) == .orderedDescending
+                    {
+                        //it come
+                        labelTitle.text = item.title + " 还有"
+                        labelCount.textColor = #colorLiteral(red: 1, green: 0.8288275599, blue: 0, alpha: 1)
+                        item.status = 1
+                        if myDate != nil{
+                            // 计算 倒数天数
+                            let goDate: NSDate = myDate! as NSDate
+                            //let currentDate: NSDate = NSDate()
+                            let interval: TimeInterval = goDate.timeIntervalSince(currentDate as Date)
+                            let second = Int(round(interval))
+                            let days = second / 24 / 3600
+                            
+                            labelCount.text = "\(days)"
+                        }
+                    }
+                }
+                
+                topCountLabel.text = labelCount.text
+                topTitleLabel.text = labelTitle.text
+                topDateLabel.text = labelDate.text
+                
+            }
+        }
+        saveDaysMatterListTableViewItems()
+        navigationController?.popViewController(animated:true)
+
+    }
+    
+    func ItemManagerViewController(_ controller: ItemManagerViewController, didFinishEditing item: DaysMatterItem) {
+       
+        if let index = items.index(of: item){
+            
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = self.tableview.cellForRow(at: indexPath) {
+                
+                let labelDate = cell.viewWithTag(100) as! UILabel
+                let labelTitle = cell.viewWithTag(10) as! UILabel
+                let labelCount = cell.viewWithTag(10001) as! UILabel
+
+                labelDate.text = item.date
+                
+                let myFormatter = DateFormatter()
+                myFormatter.dateFormat = "MMM d, yyyy"
+                let myDate = myFormatter.date(from: item.date)
+                // find today
+                let currentDate: NSDate = NSDate()
+                // compare the date is passing or coming
+                if myDate?.compare(currentDate as Date) == .orderedAscending
+                {
+                    // it pass
+                    labelTitle.text = item.title + " 已经"
+                    labelCount.textColor = #colorLiteral(red: 0.3771707118, green: 0.418082118, blue: 0.7708801627, alpha: 1)
+                    item.status = 2
+                    
+                    if myDate != nil{
+                        // 计算 倒数天数
+                        let goDate: NSDate = myDate! as NSDate
+                        let interval: TimeInterval = goDate.timeIntervalSince(currentDate as Date)
+                        let second = Int(round(interval))
+                        let days = -second / 24 / 3600
+                        labelCount.text = "\(days)"
+                    }
+                }
+                if myDate?.compare(currentDate as Date) == .orderedDescending
+                {
+                    //it come
+                    labelTitle.text = item.title + " 还有"
+                    labelCount.textColor = #colorLiteral(red: 1, green: 0.8288275599, blue: 0, alpha: 1)
+                    item.status = 1
+                    if myDate != nil{
+                        // 计算 倒数天数
+                        let goDate: NSDate = myDate! as NSDate
+                        //let currentDate: NSDate = NSDate()
+                        let interval: TimeInterval = goDate.timeIntervalSince(currentDate as Date)
+                        let second = Int(round(interval))
+                        let days = second / 24 / 3600
+                        
+                        labelCount.text = "\(days)"
+                    }
+                }
+            }
+        }
+        saveDaysMatterListTableViewItems()
+        navigationController?.popViewController(animated:true)
+        
+
+    }
+    
     
     
 
