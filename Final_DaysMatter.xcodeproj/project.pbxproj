@@ -20,6 +20,7 @@
 		19E92B3C21F5C107001E0C6B /* DaysMatterItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E92B3A21F5C107001E0C6B /* DaysMatterItemTableViewCell.swift */; };
 		19E92B3D21F5C107001E0C6B /* DaysMatterItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19E92B3B21F5C107001E0C6B /* DaysMatterItemTableViewCell.xib */; };
 		19E92B4121F5C205001E0C6B /* DaysMatterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E92B4021F5C205001E0C6B /* DaysMatterItem.swift */; };
+		19E92B4721F5D205001E0C6B /* ItemDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E92B4621F5D205001E0C6B /* ItemDetailTableViewController.swift */; };
 		5B6E13FAD5D695BF78192EE0 /* Pods_Final_DaysMatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D06B2DA2013C8F886652551 /* Pods_Final_DaysMatter.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		19E92B3A21F5C107001E0C6B /* DaysMatterItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysMatterItemTableViewCell.swift; sourceTree = "<group>"; };
 		19E92B3B21F5C107001E0C6B /* DaysMatterItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaysMatterItemTableViewCell.xib; sourceTree = "<group>"; };
 		19E92B4021F5C205001E0C6B /* DaysMatterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysMatterItem.swift; sourceTree = "<group>"; };
+		19E92B4621F5D205001E0C6B /* ItemDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailTableViewController.swift; sourceTree = "<group>"; };
 		7D06B2DA2013C8F886652551 /* Pods_Final_DaysMatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_DaysMatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C927461CD3BF05C448BE722B /* Pods-Final_DaysMatter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_DaysMatter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Final_DaysMatter/Pods-Final_DaysMatter.debug.xcconfig"; sourceTree = "<group>"; };
 		DD99EAA41FDBD497EE88EBCA /* Pods-Final_DaysMatter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_DaysMatter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Final_DaysMatter/Pods-Final_DaysMatter.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				197ADF0821EC902900468EAA /* CalendarViewController.swift */,
 				0FAB58E921F1ACD000C7E791 /* DairyListTableViewItem.swift */,
 				197ADF0A21EC902900468EAA /* Main.storyboard */,
+				19E92B4621F5D205001E0C6B /* ItemDetailTableViewController.swift */,
 				19E92B4021F5C205001E0C6B /* DaysMatterItem.swift */,
 				19E92B3A21F5C107001E0C6B /* DaysMatterItemTableViewCell.swift */,
 				19E92B3B21F5C107001E0C6B /* DaysMatterItemTableViewCell.xib */,
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				197ADF1D21ECDBB800468EAA /* NavigationViewController.swift in Sources */,
+				19E92B4721F5D205001E0C6B /* ItemDetailTableViewController.swift in Sources */,
 				19E92B3921F5BA6A001E0C6B /* DaysMatterListViewController.swift in Sources */,
 				19E92B4121F5C205001E0C6B /* DaysMatterItem.swift in Sources */,
 				0FAB58E621F0C7EA00C7E791 /* DairyDetailViewController.swift in Sources */,
