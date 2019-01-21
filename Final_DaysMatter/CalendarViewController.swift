@@ -217,6 +217,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
             weekImageView.image = UIImage(named: "cellLabelWeekday")
         }
         
+//        let dairyDate = dateDataLabel.text as! String
         let dairyDate = dateDataLabel.text as! String
         datesWithDairy.append(dairyDate)
         print(datesWithDairy)
@@ -238,7 +239,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func dataFilePath() -> URL{
-        return documentDirectory().appendingPathComponent("DairyListItems.plist")
+        return documentDirectory().appendingPathComponent("DairyListItems-1.plist")
     }
     
     // MARK: - <对items模型进行归档和解档>

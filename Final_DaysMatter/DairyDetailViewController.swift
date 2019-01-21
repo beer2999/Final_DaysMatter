@@ -48,33 +48,6 @@ class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UIT
         
         self.tableView.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
         
-        let dateDataArray = dateData.components(separatedBy: "/")
-        let day = dateDataArray[2]
-        let month = dateDataArray[1]
-        let year = dateDataArray[0]
-        let week = dateDataArray[3]
-        
-        dayLabel.text = day
-        monthLabel.text = month
-        yearLabel.text = year
-        dateDataLabel.text = dateData
-    
-        if week == "Monday"{
-            weekLabel.text = "星期一"
-        }else if week == "Tuesday"{
-            weekLabel.text = "星期二"
-        }else if week == "Wednesday"{
-            weekLabel.text = "星期三"
-        }else if week == "Thurday"{
-            weekLabel.text = "星期四"
-        }else if week == "Friday"{
-            weekLabel.text = "星期五"
-        }else if week == "Saturday"{
-            weekLabel.text = "星期六"
-        }else{
-            weekLabel.text = "星期日"
-        }
-        
         if let item = itemToEdit{
             title = "编辑日记"
             dayLabel.text = item.Day
@@ -99,6 +72,35 @@ class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UIT
             dairyTitleField.text = item.DairyTitle
             dairyContentField.text = item.DairyContent
             saveBarButton.isEnabled = true
+        }else{
+            
+            let dateDataArray = dateData.components(separatedBy: "/")
+            let day = dateDataArray[2]
+            let month = dateDataArray[1]
+            let year = dateDataArray[0]
+            let week = dateDataArray[3]
+            
+            dayLabel.text = day
+            monthLabel.text = month
+            yearLabel.text = year
+            dateDataLabel.text = dateData
+            
+            if week == "Monday"{
+                weekLabel.text = "星期一"
+            }else if week == "Tuesday"{
+                weekLabel.text = "星期二"
+            }else if week == "Wednesday"{
+                weekLabel.text = "星期三"
+            }else if week == "Thurday"{
+                weekLabel.text = "星期四"
+            }else if week == "Friday"{
+                weekLabel.text = "星期五"
+            }else if week == "Saturday"{
+                weekLabel.text = "星期六"
+            }else{
+                weekLabel.text = "星期日"
+            }
+            
         }
         
     }
