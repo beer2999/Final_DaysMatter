@@ -1227,7 +1227,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="广场" translatesAutoresizingMaskIntoConstraints="NO" id="1Su-YV-W38">
-                                <rect key="frame" x="0.0" y="84" width="414" height="1043"/>
+                                <rect key="frame" x="0.0" y="76" width="414" height="1222"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
