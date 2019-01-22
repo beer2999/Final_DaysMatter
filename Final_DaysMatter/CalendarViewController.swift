@@ -27,12 +27,11 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - <今日数据和带事件日期Array>
     var today:NSDate = Date() as NSDate
-//    var datesWithDairy = ["2019/01/04/Friday", "2019/01/06/Sunday"]
     var datesWithDairy = [String]()
     
     var selectDate = String()
 
-    // MARK: - <临时dairylisttableviewitem数据>
+    // MARK: - <DairyListTableViewItem数据模型>
     var items: [DairyListTableViewItem]
     required init?(coder aDecoder: NSCoder) {
         items = [DairyListTableViewItem]()
@@ -59,7 +58,6 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
         super.init(coder: aDecoder)
         loadDiaryListTableViewItems()
-//        readDatesWithDairy()
     }
     
     // MARK: - <ViewDidLoad>
@@ -84,6 +82,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
+    //MARK: - <针对不同Segue的delegate>
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "AddDairy"{
@@ -128,7 +127,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         return Date() as Date
     }
     
-    // MARK: - <设置工作日和周末颜色区别>
+    // MARK: - <设置非点击状态的工作日和周末颜色区别>
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
         let key = self.dateFormatter.string(from: date)
         if key == self.dateFormatter.string(from: today as Date){
@@ -161,7 +160,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    //获取编辑页面delegate
+    // MARK: - <通过协议获取编辑/添加页面delegate>
     func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingAdding item: DairyListTableViewItem) {
         let newRowIndex = items.count
         items.append(item)
@@ -172,10 +171,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
         dismiss(animated: true, completion: nil)
         saveDiaryListTableViewItems()
-//        saveDatesWithDairy()
-        
     }
-    
     func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingEditing item: DairyListTableViewItem) {
         if let index = items.index(of: item){
             let indexPath = IndexPath(row: index, section: 0)
@@ -185,8 +181,6 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         dismiss(animated: true, completion: nil)
         saveDiaryListTableViewItems()
-//        saveDatesWithDairy()
-    
     }
     
     // MARK: - <设置日历列表的展示>
@@ -211,13 +205,13 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         dairyTitleLabel.text = item.DairyTitle
         dairyContentLabel.text = item.DairyContent
         dateDataLabel.text = item.dateData
+        
         if item.Week == "Saturday" || item.Week == "Sunday"{
             weekImageView.image = UIImage(named: "cellLabelWeekend")
         }else{
             weekImageView.image = UIImage(named: "cellLabelWeekday")
         }
         
-//        let dairyDate = dateDataLabel.text as! String
         let dairyDate = dateDataLabel.text as! String
         datesWithDairy.append(dairyDate)
         print(datesWithDairy)
@@ -261,31 +255,5 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
             unarchiver.finishDecoding()
         }
     }
-    
-    // MARK: - <针对items中的dateData日期数据进行归档和存档>  多此一举
-//    func dataWithDairyFilePath() -> URL{
-//        return documentDirectory().appendingPathComponent("dataWithDairy.plist")
-//    }
-
-//    func readDatesWithDairy(){
-//        let path = dataWithDairyFilePath()
-//        if let data = try? Data(contentsOf: path){
-//            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-//            datesWithDairy = unarchiver.decodeObject(forKey: "dateData")
-//                as! Array
-//            print(datesWithDairy)
-//            unarchiver.finishDecoding()
-//        }
-//    }
-//
-//    func saveDatesWithDairy(){
-//        let data = NSMutableData()
-//        let archiver = NSKeyedArchiver(forWritingWith: data)
-//        for index in 0..<items.count {
-//            archiver.encode(items[index].dateData, forKey: "dateData")
-//        }
-//        archiver.finishEncoding()
-//        data.write(to: dataFilePath(), atomically: true)
-//    }
 }
 

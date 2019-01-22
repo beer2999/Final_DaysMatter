@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - <协议>
 protocol DairyDetailViewControllerDelegate: class {
     func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingAdding item: DairyListTableViewItem)
     func dairyDetailViewController(_ controller: DairyDetailViewController, didFinishingEditing item: DairyListTableViewItem)
@@ -15,6 +16,7 @@ protocol DairyDetailViewControllerDelegate: class {
 
 class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate{
     
+    // MARK: - <IBOutlet>
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
@@ -27,25 +29,32 @@ class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UIT
     
     weak var delegate: DairyDetailViewControllerDelegate?
     
+    // MARK: - <设置日期格式>
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd/EEEE"
         return formatter
     }()
     
+    // MARK: - <设置编辑item用于区分segue调转>
     var itemToEdit: DairyListTableViewItem?
+    
+    // MARK: - <dateData数组用于存储上一页delegate的日期>
     var dateData = String()
     
-    
+    // MARK: - <viewWillAppear>
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dairyTitleField.becomeFirstResponder()
         
     }
+    
+    // MARK: - <ViewDidLoad>
     override func viewDidLoad() {
         super.viewDidLoad()
         saveBarButton.isEnabled = false
         
+        //tableview删除顶部留白
         self.tableView.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
         
         if let item = itemToEdit{
@@ -105,10 +114,12 @@ class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UIT
         
     }
     
+    // MARK: - <取消>
     @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - <保存>
     @IBAction func save() {
         if let item = itemToEdit {
             item.Day = dayLabel.text!
@@ -163,6 +174,7 @@ class DairyDetailViewController: UITableViewController, UITextFieldDelegate, UIT
         }
     }
     
+    // MARK: - <判断新标题是否含有文字>
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let oldText = textField.text! as NSString

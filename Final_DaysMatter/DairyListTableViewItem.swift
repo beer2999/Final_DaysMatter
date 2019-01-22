@@ -9,6 +9,7 @@ import Foundation
 
 class DairyListTableViewItem: NSObject, NSCoding {
     
+    // MARK: - <设置各项key>
     var Day = ""
     var Month = ""
     var Year = ""
@@ -17,6 +18,7 @@ class DairyListTableViewItem: NSObject, NSCoding {
     var DairyTitle = ""
     var DairyContent = ""
     
+    // MARK: - <归档>
     func encode(with aCoder: NSCoder) {
         aCoder.encode(Day, forKey: "Day")
         aCoder.encode(Month, forKey: "Month")
@@ -26,6 +28,8 @@ class DairyListTableViewItem: NSObject, NSCoding {
         aCoder.encode(DairyTitle, forKey: "DairyTitle")
         aCoder.encode(DairyContent, forKey: "DairyContent")
     }
+    
+    // MARK: - <解档>
     required init?(coder aDecoder: NSCoder) {
         Day = aDecoder.decodeObject(forKey: "Day") as! String
         Month = aDecoder.decodeObject(forKey: "Month") as! String
